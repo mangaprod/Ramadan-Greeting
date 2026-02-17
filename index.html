@@ -6,15 +6,15 @@
   <title>Ramadan Greeting Card</title>
   <style>
     @font-face {
-      font-family: 'Neo Sans W23 Bold';
-      src: url('Fonts/Neo Sans W23 Bold-d55f.otf') format('opentype');
-      font-weight: 700;
+      font-family: 'Neo Sans W23';
+      src: url('Fonts/Neo-Sans-W23-m.ttf') format('truetype');
+      font-weight: 400;
       font-style: normal;
     }
 
     body {
       text-align: center;
-      font-family: 'Neo Sans W23 Bold', sans-serif;
+      font-family: 'Neo Sans W23', sans-serif;
       background-color: #f8f8f8;
       position: relative;
       min-height: 100vh;
@@ -75,7 +75,7 @@
       padding: 10px 20px;
       font-size: 18px;
       background-color: #664493;
-      color: white;
+      color: #ffd19d;
       border: none;
       cursor: pointer;
       display: inline-flex;
@@ -193,7 +193,7 @@
       
       if (name) {
         const fontSize = 37.5;
-        ctx.font = `700 ${fontSize}px 'Neo Sans W23 Bold', sans-serif`;
+        ctx.font = `400 ${fontSize}px 'Neo Sans W23', sans-serif`;
         ctx.textAlign = "center";
         ctx.direction = "rtl"; // Ensures right-to-left text for Arabic
 
@@ -204,7 +204,7 @@
         const textBaselineY = canvas.height - 70; 
 
         // Draw the text
-        ctx.fillStyle = "#ffffff";
+        ctx.fillStyle = "#fffff2";
         ctx.fillText(name, canvas.width / 2, textBaselineY);
       }
     }
@@ -232,7 +232,7 @@
         const newTab = window.open();
         if (newTab) {
           newTab.document.write('<img src="' + dataUrl + '" alt="Ramadan Greeting Card" style="max-width:100%">');
-          newTab.document.write('<p style="font-weight: bold; font-size: 20px; font-family: \'Neo Sans W23 Bold\', sans-serif;">Press and hold on the image to save to your photo gallery</p>');
+          newTab.document.write('<p style="font-weight: 400; font-size: 20px; font-family: \'Neo Sans W23\', sans-serif;">Press and hold on the image to save to your photo gallery</p>');
           newTab.document.title = "Save your Ramadan card";
         } else {
           alert("Please enable pop-ups to save your card or take a screenshot");
