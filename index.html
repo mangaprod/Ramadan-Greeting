@@ -203,14 +203,8 @@
         // to move the text up or down on the card.
         const textBaselineY = canvas.height - 70; 
 
-        // Draw a white stroke around the text
-        ctx.strokeStyle = "white";
-        ctx.lineWidth = 10;
-        ctx.lineJoin = "round";
-        ctx.strokeText(name, canvas.width / 2, textBaselineY);
-
         // Draw the text
-        ctx.fillStyle = "#4d2715"; // Dark text color
+        ctx.fillStyle = "#ffffff";
         ctx.fillText(name, canvas.width / 2, textBaselineY);
       }
     }
