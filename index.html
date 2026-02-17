@@ -5,9 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ramadan Greeting Card</title>
   <style>
+    @font-face {
+      font-family: 'Neo Sans W23 Bold';
+      src: url('Fonts/Neo Sans W23 Bold-d55f.otf') format('opentype');
+      font-weight: 700;
+      font-style: normal;
+    }
+
     body {
       text-align: center;
-      font-family: 'Cairo', sans-serif;
+      font-family: 'Neo Sans W23 Bold', sans-serif;
       background-color: #f8f8f8;
       position: relative;
       min-height: 100vh;
@@ -185,15 +192,10 @@
       ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
       
       if (name) {
-        ctx.font = "bold 30px 'Cairo', sans-serif";
+        const fontSize = 37.5;
+        ctx.font = `700 ${fontSize}px 'Neo Sans W23 Bold', sans-serif`;
         ctx.textAlign = "center";
         ctx.direction = "rtl"; // Ensures right-to-left text for Arabic
-
-        // Measure the text width to correctly size the background
-        const textWidth = ctx.measureText(name).width;
-        const textHeight = 30; // Approximate font height (adjust if needed for precise fit)
-        const paddingX = 15; // Horizontal padding around the text
-        const paddingY = 8; // Vertical padding around the text
 
         // Define the target Y position for the text baseline
         // This is where the actual text will be drawn.
@@ -201,19 +203,14 @@
         // to move the text up or down on the card.
         const textBaselineY = canvas.height - 70; 
 
-        // Calculate background rectangle position and dimensions
-        // The rectangle's Y needs to be offset to start above the text baseline
-        const rectX = (canvas.width / 2) - (textWidth / 2) - paddingX;
-        const rectY = textBaselineY - textHeight - paddingY + 5; // +5 to visually center the text vertically within the background
-        const rectWidth = textWidth + (2 * paddingX);
-        const rectHeight = textHeight + (2 * paddingY);
-
-        // Draw the white background rectangle
-        ctx.fillStyle = "white";
-        ctx.fillRect(rectX, rectY, rectWidth, rectHeight);
+        // Draw a white stroke around the text
+        ctx.strokeStyle = "white";
+        ctx.lineWidth = 10;
+        ctx.lineJoin = "round";
+        ctx.strokeText(name, canvas.width / 2, textBaselineY);
 
         // Draw the text
-        ctx.fillStyle = "#372729"; // Dark text color
+        ctx.fillStyle = "#4d2715"; // Dark text color
         ctx.fillText(name, canvas.width / 2, textBaselineY);
       }
     }
@@ -241,7 +238,7 @@
         const newTab = window.open();
         if (newTab) {
           newTab.document.write('<img src="' + dataUrl + '" alt="Ramadan Greeting Card" style="max-width:100%">');
-          newTab.document.write('<p style="font-weight: bold; font-size: 20px; font-family: \'Cairo\', sans-serif;">Press and hold on the image to save to your photo gallery</p>');
+          newTab.document.write('<p style="font-weight: bold; font-size: 20px; font-family: \'Neo Sans W23 Bold\', sans-serif;">Press and hold on the image to save to your photo gallery</p>');
           newTab.document.title = "Save your Ramadan card";
         } else {
           alert("Please enable pop-ups to save your card or take a screenshot");
